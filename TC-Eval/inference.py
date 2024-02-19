@@ -5,7 +5,7 @@ from typing import Dict, Any, Tuple
 from tqdm import tqdm
 from rich import print
 
-from inference.get_response import TGIResponseModel, OpenAIResponseModel, ResponseModel
+from inference.get_response import AutoHFResponseModel, TGIResponseModel, OpenAIResponseModel, ResponseModel
 from inference.aggregate_results import ResultAggregator
 from inference.tasks import get_task
 from inference.utils import task_config_check, deep_merge
@@ -21,6 +21,9 @@ def _get_response_model(config):
         response_model = TGIResponseModel(api_base)
     elif resp_model_name == "openai":
         response_model = OpenAIResponseModel(**config)
+    elif resp_model_name == 'hf':
+        path_model = config['path_model']
+        response_model = AutoHFResponseModel(path_model, **config)
     else:
         raise NotImplementedError
 
@@ -36,6 +39,8 @@ def _get_resp_config(config):
         sys_prompt = prompt_cfg.get("sys_prompt", "")
         prefix_resp = prompt_cfg.get("prefix_resp", "")
         return {**config["openai_generation_config"], 'sys_prompt': sys_prompt, 'prefix_resp': prefix_resp}
+    elif resp_model_name == 'hf':
+        return config['hf_generation_config']
     else:
         raise NotImplementedError
     

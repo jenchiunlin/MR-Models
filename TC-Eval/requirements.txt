@@ -8,3 +8,6 @@ rich
 openai
 tqdm
 tenacity
+datasets
+transformers
+accelerate

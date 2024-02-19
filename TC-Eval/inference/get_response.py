@@ -25,6 +25,10 @@ class AutoHFResponseModel(ResponseModel):
         self.device = torch.device("cuda")
 
         # Load model
+        #tokenizer = AutoTokenizer.from_pretrained(hf_model_path)
+        #tokenizer.save_pretrained('local/' + hf_model_path)
+        #model = AutoModelForCausalLM.from_pretrained(hf_model_path)
+        #model.save_pretrained('local/' + hf_model_path)
         config = AutoConfig.from_pretrained(hf_model_path)
         model = AutoModelForCausalLM.from_config(config)
         self.model = load_checkpoint_and_dispatch(model, hf_model_path, device_map = "auto", no_split_module_classes=model._no_split_modules, dtype=torch.float16)
