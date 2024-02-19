@@ -25,10 +25,6 @@ class AutoHFResponseModel(ResponseModel):
         self.device = torch.device("cuda")
 
         # Load model
-        #tokenizer = AutoTokenizer.from_pretrained(hf_model_path)
-        #tokenizer.save_pretrained('local/' + hf_model_path)
-        #model = AutoModelForCausalLM.from_pretrained(hf_model_path)
-        #model.save_pretrained('local/' + hf_model_path)
         config = AutoConfig.from_pretrained(hf_model_path)
         model = AutoModelForCausalLM.from_config(config)
         self.model = load_checkpoint_and_dispatch(model, hf_model_path, device_map = "auto", no_split_module_classes=model._no_split_modules, dtype=torch.float16)
@@ -36,20 +32,20 @@ class AutoHFResponseModel(ResponseModel):
         self.tokenizer = AutoTokenizer.from_pretrained(hf_model_path)
 
     def get_response(self, input_text: str, **kwargs) -> Dict[str, any]:
-        encoded_inputs = self.tokenizer(input_text, return_tensor="pt").to(self.device)
+        encoded_inputs = self.tokenizer(input_text, return_tensors="pt").to(self.device)
 
         # Setting generation config; greedy decoding by default
         generation_cfg = {'do_sample': kwargs.get('do_sample', False),
                           'temperature': kwargs.get('temperature', 0),
                           'max_new_tokens': kwargs.get('max_new_tokens', 128),
-                          'use_cache': True}
+                          'use_cache': False}
 
         with torch.no_grad():
             output = self.model.generate(**encoded_inputs, **generation_cfg)
-        sequences = output.sequences
+        # skip input tokens
+        sequences = output[:, encoded_inputs['input_ids'].shape[1]:]
         
         all_decoded_text = self.tokenizer.batch_decode(sequences, skip_special_tokens=True)
-        
         completions = []
         for decoded_text in all_decoded_text:
             completions.append({"text": decoded_text})
