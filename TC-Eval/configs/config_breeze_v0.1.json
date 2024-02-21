@@ -95,25 +95,16 @@
       "task_name": "TMMLU/中醫臨床醫學"
     },
     {
-      "task_name": "TMMLU/計算機數學"
-    },
-    {
       "task_name": "TMMLU/油壓"
     },
     {
       "task_name": "TMMLU/分科測驗歷史"
     },
     {
-      "task_name": "TMMLU/分科測驗數學甲"
-    },
-    {
       "task_name": "TMMLU/製鞋─製配底"
     },
     {
       "task_name": "TMMLU/臨床血清免疫學與臨床病毒學"
-    },
-    {
-      "task_name": "TMMLU/分科測驗化學"
     },
     {
       "task_name": "TMMLU/會計學經濟學"

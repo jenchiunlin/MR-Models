@@ -48,7 +48,8 @@ class AutoHFResponseModel(ResponseModel):
         all_decoded_text = self.tokenizer.batch_decode(sequences, skip_special_tokens=True)
         completions = []
         for decoded_text in all_decoded_text:
-            completions.append({"text": decoded_text})
+            #completions.append({"text": decoded_text})
+            completions.append(decoded_text)
 
         return {"completions": completions}
     
