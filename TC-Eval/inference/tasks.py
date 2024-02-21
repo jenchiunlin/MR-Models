@@ -57,6 +57,7 @@ _DEFAULT_QUERY_TEMPLATE = {
     "FGC": "請根據以下內容回答問題，且答案需盡可能簡短。注意：答案必須為內容的子字串。\n\n{context}\n\n問題：{question}\n\n",
     "TTQA": "{question}",
     "TMMLU": "{question}",
+    "TMMLU_plus": "{question}",
     "IMDB_TC": "請閱讀以下評論，並回答此評論是正面還是負面，如果是正面，請回答\'正面\';，如果是負面，請回答\'負面\'：\n\n評論：{context}\n\n",
     "XSum_TC_5k": "\n\n {context} \n\n 根據上述文章以一句話來總結\n\n",
     "PenguinsInTable_TC": "{question}"
@@ -84,7 +85,9 @@ def get_task_query_func(task_name, **prompt_config) -> callable:
 def get_task(task_name, prompt_config) -> Tuple[Dataset, callable]:
     dataset_cls = ALL_DATASETS[task_name]
 
-    if 'TMMLU' in task_name:
+    if 'TMMLU_plus' in task_name:
+        task_name = 'TMMLU_plus'
+    elif 'TMMLU' in task_name:
         task_name = 'TMMLU'
     
     return (dataset_cls, get_task_query_func(task_name, **prompt_config))

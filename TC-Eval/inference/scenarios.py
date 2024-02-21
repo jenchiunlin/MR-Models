@@ -184,7 +184,9 @@ ALL_DATASETS = {
     'IMDB_TC': IMDBTC,
     'PenguinsInTable_TC': BigBenchPenguinsInATableTC,
     **{f'TMMLU/{subject}': partial(TMMLU, subject=f'{subject}')
-      for subject in os.listdir(f'{_CUR_DIR}/../data/TMMLU/subjects/')}
+      for subject in os.listdir(f'{_CUR_DIR}/../data/TMMLU/subjects/')},
+    **{f'TMMLU_plus/{subject}': partial(TMMLU, data_dir=f"{_CUR_DIR}/../data/TMMLU_plus/subjects", subject=f'{subject}')
+      for subject in os.listdir(f'{_CUR_DIR}/../data/TMMLU_plus/subjects/')},
 }
 
 if __name__ == '__main__':

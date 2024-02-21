@@ -52,6 +52,13 @@ def _create_placeholder_eval_result_dict() -> Dict[str, Dict[str, Any]]:
         df = pd.read_csv(f"{d}/data.csv")
         pdict[f"TMMLU/{s}"] = {str(i): {"response": _resp_status} for i, row in df.iterrows()}
     
+    # TMMLU+
+    tmmlu_dirs = glob.glob(f"{_CUR_DIR}/../data/TMMLU_plus/subjects/*")
+    subjects = [d.split('/')[-1] for d in tmmlu_dirs]
+    for s, d in zip(subjects, tmmlu_dirs):
+        df = pd.read_csv(f"{d}/data.csv")
+        pdict[f"TMMLU_plus/{s}"] = {str(i): {"response": _resp_status} for i, row in df.iterrows()}
+    
     return pdict
 
 
