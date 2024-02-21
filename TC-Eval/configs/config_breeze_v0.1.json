@@ -201,6 +201,204 @@
     },
     {
       "task_name": "TMMLU/車輛塗裝"
+    },
+    {
+      "task_name": "TMMLU_plus/化學"
+    },
+    {
+      "task_name": "TMMLU_plus/國文"
+    },
+    {
+      "task_name": "TMMLU_plus/政治"
+    },
+    {
+      "task_name": "TMMLU_plus/物理"
+    },
+    {
+      "task_name": "TMMLU_plus/稅務"
+    },
+    {
+      "task_name": "TMMLU_plus/總經"
+    },
+    {
+      "task_name": "TMMLU_plus/航海"
+    },
+    {
+      "task_name": "TMMLU_plus/貿易"
+    },
+    {
+      "task_name": "TMMLU_plus/軍事"
+    },
+    {
+      "task_name": "TMMLU_plus/農業"
+    },
+    {
+      "task_name": "TMMLU_plus/餐旅"
+    },
+    {
+      "task_name": "TMMLU_plus/體育"
+    },
+    {
+      "task_name": "TMMLU_plus/保險學"
+    },
+    {
+      "task_name": "TMMLU_plus/審計學"
+    },
+    {
+      "task_name": "TMMLU_plus/房地產"
+    },
+    {
+      "task_name": "TMMLU_plus/會計學"
+    },
+    {
+      "task_name": "TMMLU_plus/火災學"
+    },
+    {
+      "task_name": "TMMLU_plus/牙醫學"
+    },
+    {
+      "task_name": "TMMLU_plus/經濟學"
+    },
+    {
+      "task_name": "TMMLU_plus/藥劑學"
+    },
+    {
+      "task_name": "TMMLU_plus/藥理學"
+    },
+    {
+      "task_name": "TMMLU_plus/行政法"
+    },
+    {
+      "task_name": "TMMLU_plus/視光學"
+    },
+    {
+      "task_name": "TMMLU_plus/閩南語"
+    },
+    {
+      "task_name": "TMMLU_plus/音樂科"
+    },
+    {
+      "task_name": "TMMLU_plus/三民主義"
+    },
+    {
+      "task_name": "TMMLU_plus/企業管理"
+    },
+    {
+      "task_name": "TMMLU_plus/信託實務"
+    },
+    {
+      "task_name": "TMMLU_plus/台灣地理"
+    },
+    {
+      "task_name": "TMMLU_plus/國中理化"
+    },
+    {
+      "task_name": "TMMLU_plus/基礎醫學"
+    },
+    {
+      "task_name": "TMMLU_plus/工程數學"
+    },
+    {
+      "task_name": "TMMLU_plus/教育專業"
+    },
+    {
+      "task_name": "TMMLU_plus/教育常識"
+    },
+    {
+      "task_name": "TMMLU_plus/教育心理"
+    },
+    {
+      "task_name": "TMMLU_plus/有機化學"
+    },
+    {
+      "task_name": "TMMLU_plus/機關文書"
+    },
+    {
+      "task_name": "TMMLU_plus/法學大意"
+    },
+    {
+      "task_name": "TMMLU_plus/法律概論"
+    },
+    {
+      "task_name": "TMMLU_plus/洗錢防制"
+    },
+    {
+      "task_name": "TMMLU_plus/管理會計"
+    },
+    {
+      "task_name": "TMMLU_plus/統測國文"
+    },
+    {
+      "task_name": "TMMLU_plus/統測數學"
+    },
+    {
+      "task_name": "TMMLU_plus/行銷管理"
+    },
+    {
+      "task_name": "TMMLU_plus/財務分析"
+    },
+    {
+      "task_name": "TMMLU_plus/資訊工程"
+    },
+    {
+      "task_name": "TMMLU_plus/邏輯思維"
+    },
+    {
+      "task_name": "TMMLU_plus/高中物理"
+    },
+    {
+      "task_name": "TMMLU_plus/技術工相關"
+    },
+    {
+      "task_name": "TMMLU_plus/獸醫病理學"
+    },
+    {
+      "task_name": "TMMLU_plus/獸醫藥理學"
+    },
+    {
+      "task_name": "TMMLU_plus/統測自然科"
+    },
+    {
+      "task_name": "TMMLU_plus/統測＿設計"
+    },
+    {
+      "task_name": "TMMLU_plus/臨床心理學"
+    },
+    {
+      "task_name": "TMMLU_plus/金融與法規"
+    },
+    {
+      "task_name": "TMMLU_plus/中醫臨床醫學"
+    },
+    {
+      "task_name": "TMMLU_plus/台灣在地用語"
+    },
+    {
+      "task_name": "TMMLU_plus/指考人文科目"
+    },
+    {
+      "task_name": "TMMLU_plus/人類行為與社會"
+    },
+    {
+      "task_name": "TMMLU_plus/機械與機電概論"
+    },
+    {
+      "task_name": "TMMLU_plus/統計與機器學習"
+    },
+    {
+      "task_name": "TMMLU_plus/國中會考基測國文"
+    },
+    {
+      "task_name": "TMMLU_plus/國中會考基測數學科"
+    },
+    {
+      "task_name": "TMMLU_plus/國中會考基測社會科"
+    },
+    {
+      "task_name": "TMMLU_plus/國中會考基測自然科"
+    },
+    {
+      "task_name": "TMMLU_plus/心理障礙職能治療學"
     }
   ]
 }

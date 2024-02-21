@@ -268,6 +268,8 @@ EVALUATION_ITEMS = [
     ['IMDB_TC', IMDBTCTask(f'{_CUR_DIR}/data/IMDB_TC/')],
     ['PenguinsInTable_TC', PenguinsInTableTCTask(f'{_CUR_DIR}/data/PenguinsInTable_TC')],
     *[[f'TMMLU/{subject}', TMMLUTask(f'{_CUR_DIR}/data/TMMLU/subjects/{subject}/')]
+      for subject in os.listdir(f'{_CUR_DIR}/data/TMMLU/subjects/')],
+    *[[f'TMMLU_plus/{subject}', TMMLUTask(f'{_CUR_DIR}/data/TMMLU_plus/subjects/{subject}/')]
       for subject in os.listdir(f'{_CUR_DIR}/data/TMMLU/subjects/')]
 ]
 
@@ -287,6 +289,7 @@ if __name__ == '__main__':
         print(f'== {path} ==')
         metrics = evaluate_all(path)
         metrics['TMMLU_Avg'] = {'accuracy': np.mean([metrics[k]['accuracy'] for k in metrics if 'TMMLU' in k])}
+        metrics['TMMLU_plus_Avg'] = {'accuracy': np.mean([metrics[k]['accuracy'] for k in metrics if 'TMMLU_plus' in k])}
 
         pprint(metrics)
         
