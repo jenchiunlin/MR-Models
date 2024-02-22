@@ -291,8 +291,8 @@ if __name__ == '__main__':
     for path in glob(f'{_CUR_DIR}/results/*_result.json'):
         print(f'== {path} ==')
         metrics = evaluate_all(path)
-        metrics['TMMLU_Avg'] = {'accuracy': np.mean([metrics[k]['accuracy'] for k in metrics if 'TMMLU' in k])}
-        metrics['TMMLU_plus_Avg'] = {'accuracy': np.mean([metrics[k]['accuracy'] for k in metrics if 'TMMLU_plus' in k])}
+        metrics['TMMLU_Avg'] = {'accuracy': np.mean([metrics[k]['accuracy'] for k in metrics if 'TMMLU/' in k])}
+        metrics['TMMLU_plus_Avg'] = {'accuracy': np.mean([metrics[k]['accuracy'] for k in metrics if 'TMMLU_plus/' in k])}
 
         pprint(metrics)
         
