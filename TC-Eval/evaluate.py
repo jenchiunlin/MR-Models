@@ -270,7 +270,7 @@ EVALUATION_ITEMS = [
     *[[f'TMMLU/{subject}', TMMLUTask(f'{_CUR_DIR}/data/TMMLU/subjects/{subject}/')]
       for subject in os.listdir(f'{_CUR_DIR}/data/TMMLU/subjects/')],
     *[[f'TMMLU_plus/{subject}', TMMLUTask(f'{_CUR_DIR}/data/TMMLU_plus/subjects/{subject}/')]
-      for subject in os.listdir(f'{_CUR_DIR}/data/TMMLU/subjects/')]
+      for subject in os.listdir(f'{_CUR_DIR}/data/TMMLU_plus/subjects/')]
 ]
 
 
@@ -278,6 +278,9 @@ def evaluate_all(result_path):
     results = json.load(open(result_path))
     metrics = {}
     for name, task in EVALUATION_ITEMS:
+        if not results['results'].get(name):
+            metrics[name] = {'accuracy': float('nan')}
+            continue
         list_of_response = results['results'][name]
         metrics[name] = task.evaluate(list_of_response)
     return metrics
