@@ -26,10 +26,19 @@ class VicunaTemplate(ModelTemplate):
         out_text = template.format(query=query, sys_prompt=sys_prompt)
         return out_text
 
+class BailongTemplate(ModelTemplate):
+    @staticmethod
+    def apply(query: str, **kwargs):
+        template = "<s>{query}</s>"
+        assert 'sys_prompt' not in kwargs, f"sys_prompt not supported; llama2 template = {template}"
+        
+        out_text = template.format(query=query)
+        return out_text    
 
 ALL_MODEL_TEMPLATE_FUNC={
     'default': ModelTemplate.apply,
     'llama2': Llama2Template.apply,
     'vicuna': VicunaTemplate.apply,
+    'bailong': BailongTemplate.apply,
     'openai': ModelTemplate.apply
 }
