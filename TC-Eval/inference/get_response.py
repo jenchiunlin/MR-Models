@@ -26,8 +26,9 @@ class AutoHFResponseModel(ResponseModel):
 
         # Load model
         config = AutoConfig.from_pretrained(hf_model_path)
-        model = AutoModelForCausalLM.from_config(config)
-        self.model = load_checkpoint_and_dispatch(model, hf_model_path, device_map = "auto", no_split_module_classes=model._no_split_modules, dtype=torch.float16)
+        #model = AutoModelForCausalLM.from_config(config)
+        #self.model = load_checkpoint_and_dispatch(model, hf_model_path, device_map = "auto", no_split_module_classes=model._no_split_modules, dtype=torch.float16)
+        self.model = AutoModelForCausalLM.from_pretrained(hf_model_path, device_map='auto', torch_dtype=torch.float16, trust_remote_code=True)
         # Load tokenizer
         self.tokenizer = AutoTokenizer.from_pretrained(hf_model_path)
 
